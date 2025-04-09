@@ -1,0 +1,294 @@
+
+
+#hero{
+  background-image: url("https://img.freepik.com/free-photo/colleagues-working-project-discussing-details_114579-2817.jpg?t=st=1735149561~exp=1735153161~hmac=403062e71dd3008c9dd148b9e2f7c159b0fdcb4d666ce4c4cd115a393e432746&w=900" );
+  height: 40vh;
+  width: 100%;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-position: top 40% right 0;
+  padding: 40px;
+
+}
+
+
+
+
+
+#hero h1{
+  padding-bottom: 15px;
+ color: white;
+
+}
+#hero p{
+  color: white;
+}
+
+
+#feature .fe-box{
+  width: 180px;
+  text-align: center;
+  padding: 25px 15px;
+  box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03);
+  border: 1px solid #cce7d0;
+  border-radius: 4px;
+  margin: 15px 0;
+}
+
+#feature .fe-box:hover {
+  box-shadow: 10px 10px 54px rgba(70, 62, 221, 0.1);
+}
+
+#feature .fe-box h6{
+  display: in-block;
+  padding: 9px 8px 6px 8px;
+  line-height: 1;
+  border-radius: 4px;
+  color: #088178;
+  background-color: #fddde4;
+}
+
+#feature .fe-box img{
+  width: 100%;
+  margin-bottom: 10px;
+
+
+}
+
+#feature{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 80px 80px;
+
+}
+
+#feature .fe-box:nth-child(2) h6{
+  background-color: #cdebbc;
+}
+
+
+#feature .fe-box:nth-child(3) h6{
+  background-color: #d1e8f2;
+}
+
+#feature .fe-box:nth-child(4) h6{
+  background-color: #cdd4f8;
+}
+
+#feature .fe-box:nth-child(5) h6{
+  background-color: #f6dbf6;
+}
+
+#feature .fe-box:nth-child(6) h6{
+  background-color: #fff2e5;
+}
+
+.parent{
+  width: 100%;
+  font-family: inherit;
+  padding-top: 80px;
+
+ }
+
+#about-head{
+  display: flex;
+  align-items: center;
+}
+#about-head img{
+
+  margin-top: auto;
+  width: 50%;
+  height: auto;
+  padding-left: 80px;
+
+
+}
+#about-head div{
+  padding: 40px 40px;
+}
+
+#newsletter  {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-image: url(https://i.postimg.cc/R0Bs4qqt/b14.png);
+    background-repeat: no-repeat;
+    background-position: 20% 30%;
+  background-color: #041e42;
+}
+
+#newsletter h4{
+  color: #fff;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+#newsletter p{
+  color: #818ea0;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+#newsletter p span{
+  color: #ffbd27;
+  }
+
+#newsletter input{
+  height: 3.125rem;
+  width: 100%;
+  font-size: 14px;
+  padding: 0 1.25em;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  outline: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#newsletter button{
+  background-color: #088178;
+  color: #fff;
+  white-space: nowrap;
+
+}
+
+#newsletter .form{
+  display: flex;
+  width: 40%;
+
+}
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+}
+
+
+footer .col{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  margin-left: 50px
+
+}
+
+footer .sec{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+
+}
+
+footer .logo{
+  margin-bottom: 20px;
+}
+
+footer h4{
+  font-size: 14px;
+  padding-bottom: 20px
+}
+
+footer p{
+  font-size: 13px;
+  margin: 0 0 8px 0;
+}
+
+
+footer a{
+  font-size: 13px;
+  text-decoration: none;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+footer .follow{
+  margin-top: 20px
+}
+
+footer .follow i{
+  color: #465b52;
+  padding-right: 5px;
+  cursor: pointer;
+
+}
+
+footer .follow i:hover, footer a:hover {
+  color: #088178;
+
+}
+
+footer .install .row img{
+  border: 1px solid #088178;
+  border-radius: 6px;
+
+}
+
+footer .install img{
+  margin: 10px 0 15px 0
+}
+
+
+footer .copyright{
+  width: 100%;
+  text-align: center
+
+}
+
+
+
+/*----------------------Media Query ----------*/
+
+
+@media (max-width: 920px) {
+
+  .section-p1 {
+    padding: 40px 40px
+  }
+
+
+  #hero{
+  height: 70vh;
+  padding: 0 80px;
+  background-position: top 30% right 30%
+ }
+
+
+
+
+  #hero{
+    padding: 0 20px;
+    background-position: 55%;
+  }
+
+  h2 {
+    font-size: 30px
+  }
+
+  h1{
+    font-size: 28px
+  }
+
+  p{
+    line-height: 24px;
+    font-size: 10px;
+  }
+
+  #hero button{
+    margin-right: 10px
+  }
+
+
+  footer .copyright{
+    text-align: start;
+  }
+}

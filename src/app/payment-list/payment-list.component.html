@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header">
+    <h2>Payment List</h2>
+  </div>
+  <div class="card-body">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Amount</th>
+          <th>Status</th>
+          <th>Payment Method</th>
+          <th>Payment Date</th>
+          <!-- <th>Actions</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let payment of payments">
+          <td>{{ payment.id }}</td>
+          <td>{{ payment.amount | currency }}</td>
+          <td>{{ payment.status }}</td>
+          <td>{{ payment.paymentMethod }}</td>
+          <td>{{ payment.paymentDate | date: 'medium' }}</td>
+          <!-- <td>
+            <button class="btn btn-warning btn-sm" (click)="editPayment(payment)">Edit</button>
+            <button class="btn btn-danger btn-sm" (click)="deletePayment(payment.id)">
+              Delete
+            </button>
+          </td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

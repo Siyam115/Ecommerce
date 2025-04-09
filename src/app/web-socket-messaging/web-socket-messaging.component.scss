@@ -1,0 +1,96 @@
+/* General styling for the FAQ section */
+.faq-list {
+    font-family: 'Arial', sans-serif;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .faq-list h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .faq-list b {
+    font-weight: normal;
+  }
+  
+  .faq-list .send-faq {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .faq-list input,
+  .faq-list textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  .faq-list textarea {
+    height: 100px;
+    resize: vertical;
+  }
+  
+  .faq-list button {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .faq-list button:hover {
+    background-color: #218838;
+  }
+  
+  /* FAQ list styles */
+  .faq-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .faq-list .faq-item {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .faq-list .faq-item strong {
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .faq-list .faq-item p {
+    font-size: 16px;
+    color: #555;
+    margin-top: 5px;
+  }
+  
+  /* No FAQ message styles */
+  .faq-list .no-faqs {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+    margin-top: 20px;
+  }
+  

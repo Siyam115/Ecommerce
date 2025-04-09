@@ -1,0 +1,260 @@
+/* Style the side navbar container */
+.side-navbar {
+  width: 150px;  /* Width of the sidebar */
+  position: fixed;  /* Fixed position on the left side */
+  top: 50;
+  left: 0;
+  height: 100%;  /* Full height */
+  background-color: #9efaea;  /* Dark background color */
+  padding-top: 20px;  /* Top padding */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Style the navbar links */
+.navbar-link {
+  padding: 15px 20px;  /* Padding for the links */
+  text-decoration: none;  /* Remove underline */
+  color: rgb(9, 9, 9);  /* Text color */
+  font-size: 18px;  /* Font size */
+  width: 100%;  /* Full width */
+  text-align: left;  /* Left-aligned text */
+  transition: background-color 0.3s;  /* Smooth background color change on hover */
+}
+
+.navbar-link:hover {
+  background-color: #575757;  /* Background color on hover */
+}
+
+
+
+
+.parent{
+  padding-top: 100px;
+}
+
+h1{
+  text-align: center;
+}
+
+/* card */
+.dress-card-img-top {
+  width:100%;
+  border-radius: 7px 7px 0 0;
+  height: 50vh;
+}
+
+.dress-card-body {
+  padding:1rem;
+  background: whitesmoke;
+  border-radius: 0 0 7px 7px;
+  height: 20vh;
+
+}
+
+.dress-card-title {
+  line-height: 0.5rem;
+}
+
+.dress-card-crossed {
+  text-decoration: line-through;
+}
+
+.dress-card-price {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.dress-card-off {
+  color: #719eb3;
+}
+
+.dress-card-para {
+  margin-bottom: 0.2rem;
+  font-size: 1.0rem;
+  margin-bottom: 0rem;
+}
+
+.dress-card {
+  border-radius: 14px;
+}
+
+
+.surprise-bubble {
+  position: absolute;
+  bottom: 12rem;
+  right: 2rem;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  padding: 1rem;
+  color: white;
+  -webkit-transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.surprise-bubble a {
+  font-size: 0.65em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: white;
+  font-family: arial;
+  text-decoration: none;
+  position: absolute;
+  top: 9px;
+  left: 20px;
+  opacity: 0;
+  -webkit-transition-delay: 2s;
+  /* Safari */
+  transition-delay: 2s;
+  -webkit-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.surprise-bubble:hover {
+  border-radius: 999rem;
+  padding: 1rem;
+  width: 26%;
+  height: 30px;
+  background: #DB2763;
+  color: white;
+  -webkit-transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.55s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.surprise-bubble:hover a {
+  opacity: 1;
+  -webkit-transition-delay: 2s;
+  /* Safari */
+  transition-delay: 2s;
+  -webkit-transition: opacity 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: opacity 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.card-button {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 15px;
+  padding: 9px;
+}
+.card-button a {
+  text-decoration: none;
+}
+
+.card-button-inner {
+  padding: 5px;
+  border-radius: 3px;
+
+}
+
+.bag-button {
+  background: #E06C9F;
+  color: white;
+}
+
+.bag-button :hover{
+  background: #e299b9;
+}
+
+.wish-button {
+  border: 1px solid #E06C9F;
+  color: #E06C9F;
+
+
+}
+
+#pagination {
+  text-align: center;
+
+}
+#pagination a{
+  text-decoration: none;
+  background-color: #7cbaf3;
+  padding:15px 20px;
+  border-radius: 4px;
+  color: #f4f6ff;
+  font-weight: 600;
+
+}
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+}
+
+
+footer .col{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  margin-left: 50px
+
+}
+
+footer .sec{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+
+}
+
+footer .logo{
+  margin-bottom: 20px;
+}
+
+footer h4{
+  font-size: 14px;
+  padding-bottom: 20px
+}
+
+footer p{
+  font-size: 13px;
+  margin: 0 0 8px 0;
+}
+
+
+footer a{
+  font-size: 13px;
+  text-decoration: none;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+footer .follow{
+  margin-top: 20px
+}
+
+footer .follow i{
+  color: #465b52;
+  padding-right: 5px;
+  cursor: pointer;
+
+}
+
+footer .follow i:hover, footer a:hover {
+  color: #088178;
+
+}
+
+footer .install .row img{
+  border: 1px solid #088178;
+  border-radius: 6px;
+
+}
+
+footer .install img{
+  margin: 10px 0 15px 0
+}
+
+
+footer .copyright{
+  width: 100%;
+  text-align: center
+
+}

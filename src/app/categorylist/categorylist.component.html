@@ -1,0 +1,31 @@
+<br>
+<br>
+
+
+
+
+<div class="container mb-5">
+  <h2 class="text-center mb-4">Category</h2>
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <div class="col" *ngFor="let a of categorylist">
+      <div class="card h-100 shadow-sm">
+        <!-- Image at the top of the card -->
+        <img src="{{ a.imageUrl || 'https://via.placeholder.com/150' }}" class="card-img-top" alt="{{ a.name }}" />
+
+        <div class="card-body">
+          <h5 class="card-title">{{ a.name }}</h5>
+          <p class="card-text">{{ a.description }}</p>
+        </div>
+
+        <div class="card-footer text-center">
+          <button type="button" class="btn btn-warning btn-sm me-2" (click)="editCategory(a.id)">
+            <i class="bi bi-pencil-fill"></i> Edit
+          </button>
+          <button type="button" class="btn btn-danger btn-sm" (click)="delete(a.id)">
+            <i class="bi bi-trash-fill"></i> Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

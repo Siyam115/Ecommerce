@@ -1,0 +1,35 @@
+<div class="container my-5">
+  <h2 class="text-center mb-4">Create User</h2>
+
+  <form [formGroup]="orderForm" (ngSubmit)="save()" class="p-4 rounded shadow bg-white">
+      <div class="row g-3">
+          <!-- Customer Name -->
+          <div class="col-md-6">
+              <label for="customerName" class="form-label fw-bold">Customer Name</label>
+              <input type="text" id="customerName" class="form-control border-2"
+                  formControlName="customerName" placeholder="Enter name" required />
+          </div>
+
+          <!-- Order Date -->
+          <div class="col-md-6">
+              <label for="orderDate" class="form-label fw-bold">Order Date</label>
+              <input type="date" id="orderDate" class="form-control border-2"
+                  formControlName="orderDate" required />
+          </div>
+      </div>
+
+      <div class="row g-3 mt-3">
+          <!-- Total Amount -->
+          <div class="col-md-6">
+              <label for="totalAmount" class="form-label fw-bold">Total Amount</label>
+              <input type="number" id="totalAmount" class="form-control border-2"
+                  formControlName="totalAmount" placeholder="Enter amount" required />
+          </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="text-center mt-4">
+          <button type="submit" class="btn btn-success px-4 py-2 w-50 shadow-sm">Confirm Order</button>
+      </div>
+  </form>
+</div>

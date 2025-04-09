@@ -1,0 +1,146 @@
+{
+  "users": [
+    {
+      "id": "1449",
+      "susername": "Fatema_Akter_Munni",
+      "spass": "777",
+      "srole": "employee"
+    },
+    {
+      "id": "21cd",
+      "susername": "Fatema_Akter_Munni",
+      "spass": "09876",
+      "srole": "employee"
+    },
+    {
+      "id": "b983",
+      "susername": "Fatema_Akter_Munni",
+      "spass": "9999",
+      "srole": "employee"
+    },
+    {
+      "id": "d8ac",
+      "susername": "Fatema_Akter_Munni",
+      "spass": "777",
+      "srole": "employee"
+    },
+    {
+      "id": "f7a6",
+      "susername": "Fatema_Akter_Munni",
+      "spass": "999",
+      "srole": "employee"
+    },
+    {
+      "id": "6880",
+      "username": null,
+      "pass": null,
+      "role": "employee"
+    },
+    {
+      "id": "fd5e",
+      "username": "Fatema_Akter_Munni",
+      "pass": "777",
+      "role": "employee"
+    },
+    {
+      "id": "fd33",
+      "username": "Fatema_Akter_Munni",
+      "pass": "666",
+      "role": "employee"
+    },
+    {
+      "id": "bdf4",
+      "username": "Fatema_Akter_Munni",
+      "pass": "666",
+      "role": "employee"
+    },
+    {
+      "id": "7ee1",
+      "username": "Fatema_Akter_Munni",
+      "pass": "999",
+      "role": "employee"
+    },
+    {
+      "id": "9f71",
+      "username": "m",
+      "pass": "m",
+      "role": "employee"
+    },
+    {
+      "id": "eece",
+      "username": "m",
+      "pass": "m",
+      "role": "employee"
+    },
+    {
+      "id": "121f",
+      "username": null,
+      "pass": null,
+      "role": "employee"
+    },
+    {
+      "id": "e461",
+      "username": "m",
+      "pass": "m",
+      "role": "employee"
+    },
+    {
+      "id": "b8fd",
+      "username": "Munny",
+      "pass": "m",
+      "role": "employee"
+    },
+    {
+      "id": "ec56",
+      "username": "Munny",
+      "pass": "mm",
+      "role": "employee"
+    },
+    {
+      "id": "29ed",
+      "username": "Munny",
+      "pass": "mmm",
+      "role": "employee"
+    },
+    {
+      "id": "13c4",
+      "username": "Munny",
+      "pass": "m",
+      "role": "employee"
+    }
+  ],
+  "cart": [
+    {
+      "id": "5c8a",
+      "title": "adidas",
+      "para": "Carton Astronault Tshirts",
+      "price": 3195
+    },
+    {
+      "id": "0d62",
+      "title": "adidas",
+      "para": "Short Knicker",
+      "price": 4195
+    }
+  ],
+  "addProduct": [
+    {
+      "id": "378c",
+      "pName": "Shirt",
+      "pPrice": 60000,
+      "pDescription": "gcgfdfg",
+      "pCatergory": "cloth",
+      "pImage": "\"https://i.postimg.cc/kg9YYbTn/f1.jpg\""
+    }
+  ],
+  "user": [
+    {
+      "id": "2806",
+      "uName": "Fatema Akter Munni",
+      "uEmail": "wer@gmail.com",
+      "uPass": "123213",
+      "uStatus": "pending",
+      "uContact": "1232344"
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+<div class="row">
+  <div class="col-md-8">
+    <div class="cart-container ">
+      <h1 class="cart-title">Your Shopping Cart</h1>
+
+
+      <div *ngIf="cart.length > 0; else emptyCart">
+        <div class="cart-item" *ngFor="let item of cart; let i = index">
+          <div class="item-image">
+            <img src="https://i.postimg.cc/kg9YYbTn/f1.jpg" alt="{{ item.title }}">
+          </div>
+          <div class="item-details">
+            <h2>{{ item.title }}</h2>
+            <p>{{ item.para }}</p>
+            <p class="price">Price: <strong>TK.{{ item.price }}</strong></p>
+          </div>
+          <div class="item-actions">
+            <!-- Quantity Control -->
+            <div class="quantity-container">
+              <button class="quantity-btn" (click)="decreaseQuantity(i)">-</button>
+              <input type="number" [(ngModel)]="item.quantity" min="1" class="quantity-input" (input)="updateTotal()">
+              <button class="quantity-btn" (click)="increaseQuantity(i)">+</button>
+            </div>
+
+            <!-- Remove Button -->
+            <button class="remove-btn" (click)="removeFromCart(i, item)">Remove</button>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+  <div class="cart-summary col-md-4">
+    <!-- <h3>Total: TK.{{ getTotal() }}</h3>
+    <button (click)="selectPackage(cart)" class="checkout-btn">Proceed to Checkout</button> -->
+
+    <div class="order-summary">
+      <h3>Order Summary</h3>
+
+      <div class="summary-item">
+        <span>Subtotal (2 items)</span>
+        <span class="price">৳{{ subtotal }}</span>
+      </div>
+
+      <div class="summary-item">
+        <span>Shipping Fee</span>
+        <span class="price">৳{{ shippingFee }}</span>
+      </div>
+
+      <div class="voucher-section">
+        <input type="text" [(ngModel)]="voucherCode" placeholder="Enter Voucher Code">
+        <button (click)="applyVoucher()">APPLY</button>
+      </div>
+
+      <div class="summary-item total">
+        <span>Total</span>
+        <span class="total-price">৳{{ total }}</span>
+      </div>
+
+      <button (click)="selectPackage(cart)" class="checkout-btn">Proceed to Checkout</button> 
+    </div>
+
+
+  </div>
+
+
+</div>
+<ng-template #emptyCart>
+  <div class="empty-cart">
+    <img src="assets/images/empty-cart.png" alt="Empty Cart">
+    <p>Your cart is currently empty. Start shopping now!</p>
+  </div>
+</ng-template>

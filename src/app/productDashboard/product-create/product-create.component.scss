@@ -1,0 +1,107 @@
+/* Form container styles */
+.form-container {
+  max-width: 800px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h3 {
+  font-size: 28px;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Form group styles */
+.form-group {
+  margin-bottom: 25px;
+}
+
+label {
+  font-size: 16px;
+  color: #2c3e50;
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f7f7f7;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: #3498db;
+  background-color: #fff;
+  outline: none;
+  box-shadow: 0px 0px 5px rgba(52, 152, 219, 0.2);
+}
+
+/* Styling for the submit button */
+button {
+  background-color: #3498db;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+  font-weight: 600;
+}
+
+button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+button:active {
+  background-color: #1d6fa5;
+  transform: translateY(1px);
+}
+
+/* Responsive Message Styles */
+#responseMessage {
+  font-size: 16px;
+  font-weight: bold;
+  color: #27ae60; /* Green color for success message */
+  margin-top: 20px;
+  text-align: center;
+  display: none; /* Hidden by default */
+}
+
+/* Add some spacing between fields */
+.form-group + .form-group {
+  margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 30px;
+  }
+
+  .form-container h3 {
+    font-size: 24px;
+  }
+
+  input, textarea {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  button {
+    padding: 12px;
+    font-size: 16px;
+  }
+}

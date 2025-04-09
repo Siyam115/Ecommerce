@@ -1,0 +1,57 @@
+<section id="header">
+  <a routerLink="/home"><img src="https://i.postimg.cc/x8ncvFjr/logo.png" /></a>
+  <div>
+    <ul id="navbar">
+      <li><a routerLink="/home" class="active">Home</a></li>
+      <li><a routerLink="/shop">Shop</a></li>
+      <li><a routerLink="/about">About</a></li>
+      <li><a routerLink="/contact">Contact</a></li>
+    
+      
+
+      <li class="nav-item" *ngIf="showAdminBoard">
+        <a href="/admin_dash" class="nav-link" routerLink="admin">Admin Board</a>
+      </li>
+      <li class="nav-item" *ngIf="showModeratorBoard && !showAdminBoard">
+        <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
+      </li>
+      <li class="nav-item">
+        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="/home">User</a>
+      </li>
+      <li class="nav-item">
+        <a href="/user" class="nav-link" *ngIf="showNormalBoard" routerLink="/cart">Cart</a>
+      </li>
+      <li class="nav-item">
+        <a href="/user" class="nav-link" *ngIf="showNormalBoard" routerLink="/pList">Product</a>
+      </li>
+      <li class="nav-item">
+        <a href="/user" class="nav-link" *ngIf="showNormalBoard" routerLink="/collection">Category</a>
+      </li>
+      <li class="nav-item">
+        <a href="/user" class="nav-link" *ngIf="showNormalBoard" routerLink="/webSocket">FAQ</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/log-in" class="nav-link" *ngIf="!isLoggedIn">View</a>
+        <!-- <a href="/view" class="nav-link" *ngIf="isLoggedIn" routerLink="view">View</a> -->
+    </li>
+    <li *ngIf="!isLoggedIn">
+      <a routerLink="/register" routerLinkActive="active">Sign Up</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+      <li class="nav-item">
+        <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+      </li>
+      <li class="nav-item">
+        <a href class="nav-link" (click)="logout()">LogOut</a>
+      </li>
+    </ul>
+  </div>
+  <!-- <div >
+    
+  <span class="me-2"><button routerLink="/cart" class="btn btn-info"><i class="bi bi-cart"></i></button></span>
+  <span class="me-2"><button routerLink="/log-in" class="btn btn-info"><i class="bi bi-person-circle"></i></button></span>
+     <span class="quantity"></span> -- -->
+  <!-- </div>  -->
+</section>
+

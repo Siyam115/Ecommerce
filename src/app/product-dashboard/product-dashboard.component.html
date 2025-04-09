@@ -1,0 +1,1284 @@
+<div class="parent">
+  <div class="sidebar">
+    <h3 class="text-center">Admin Dashboard</h3>
+    <a href="/pDash#d" id="dashboard">Dashboard</a>
+    <a routerLink="/pCreate" id="products">Manage Products</a>
+    <a href="/pDash#mo" id="orders">Manage Orders</a>
+    <a href="/pDash#mu" id="users">Manage Users</a>
+    <a href="/pDash#ud" id="users"> Users dashboard</a>
+    <a id="settings">Settings</a>
+  </div>
+
+  <div class="content">
+    <div id="overview" class="section">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card bg-primary text-white">
+            <div class="card-body">
+              <h5>Orders</h5>
+              <p>150</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card bg-success text-white">
+            <div class="card-body">
+              <h5>Products</h5>
+              <p>200</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card bg-warning text-white">
+            <div class="card-body">
+              <h5>Users</h5>
+              <p>300</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card bg-info text-white">
+            <div class="card-body">
+              <h5>Revenue</h5>
+              <p>$5000</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br />
+
+    <div class="dashboard-container">
+      <!-- Dashboard Content Section -->
+      <div class="row">
+        <!-- Sales Graph -->
+        <div class="col-md-6">
+          <h3 id="d" class="text-center">Sales Overview</h3>
+          <img
+            src="https://quickchart.io/chart?c={type:'bar',data:{labels:['January','February','March','April'],datasets:[{label:'Sales',data:[4000,3000,5000,6000]}]}}"
+            alt="Sales Graph"
+            class="img-fluid border rounded"
+          />
+        </div>
+
+        <!-- Shop Location Map -->
+        <div class="col-md-6">
+          <h3 class="text-center">Shop Location</h3>
+          <img
+            src="https://staticmapmaker.com/img/google-placeholder.png"
+            alt="Shop Location Map"
+            class="img-fluid border rounded"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div id="product-management" class="section">
+      <h2>Products</h2>
+      <button
+        routerLink="/pCreate"
+        class="btn btn-primary mb-3"
+        data-toggle="modal"
+        data-target="#addProductModal"
+      >
+        Add Product
+      </button>
+      <div class="row">
+        <div class="col-md-3">
+          <!-- <div class="card product-card">
+            <img src="https://via.placeholder.com/150" alt="Product">
+            <div class="card-body">
+              <h5 class="card-title">Product Name</h5>
+              <p class="card-text">$100</p>
+              <button class="btn btn-warning">Edit</button>
+              <button class="btn btn-danger">Delete</button>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <div id="order-management" class="section my-5">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h2 id="mo" class="text-primary">Manage Orders</h2>
+          <button class="btn btn-primary" onclick="addNewOrder()">
+            Add New Order
+          </button>
+        </div>
+
+        <!-- Search and Filter -->
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <input
+              type="text"
+              id="orderSearch"
+              class="form-control"
+              placeholder="Search by Order ID or Customer"
+              onkeyup="filterOrders()"
+            />
+          </div>
+          <div class="col-md-4">
+            <select
+              id="statusFilter"
+              class="form-select"
+              onchange="filterOrders()"
+            >
+              <option value="">Filter by Status</option>
+              <option value="Shipped">Shipped</option>
+              <option value="Pending">Pending</option>
+              <option value="Cancelled">Cancelled</option>
+              <option value="Delivered">Delivered</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Orders Table -->
+        <table class="table table-bordered table-hover">
+          <thead class="table-dark">
+            <tr>
+              <th>#</th>
+              <th>Order ID</th>
+              <th>Customer</th>
+              <th>Status</th>
+              <th>Amount</th>
+              <th class="text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody id="ordersTable">
+            <tr>
+              <td>1</td>
+              <td>ORD123</td>
+              <td>John Doe</td>
+              <td><span class="badge bg-success">Shipped</span></td>
+              <td>7150tk</td>
+              <td class="text-center">
+                <button
+                  class="btn btn-info btn-sm"
+                  onclick="viewOrder('ORD123')"
+                >
+                  View
+                </button>
+                <button
+                  class="btn btn-warning btn-sm"
+                  onclick="editOrder('ORD123')"
+                >
+                  Edit
+                </button>
+                <button
+                  class="btn btn-danger btn-sm"
+                  onclick="deleteOrder('ORD123')"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>2</td>
+              <td>ORD124</td>
+              <td>alam</td>
+              <td><span class="badge bg-success">Delivered</span></td>
+              <td>8150tk</td>
+              <td class="text-center">
+                <button
+                  class="btn btn-info btn-sm"
+                  onclick="viewOrder('ORD123')"
+                >
+                  View
+                </button>
+                <button
+                  class="btn btn-warning btn-sm"
+                  onclick="editOrder('ORD123')"
+                >
+                  Edit
+                </button>
+                <button
+                  class="btn btn-danger btn-sm"
+                  onclick="deleteOrder('ORD123')"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>3</td>
+              <td>ORD125</td>
+              <td>lamim</td>
+              <td><span class="badge bg-success">Pending</span></td>
+              <td>12150tk</td>
+              <td class="text-center">
+                <button
+                  class="btn btn-info btn-sm"
+                  onclick="viewOrder('ORD123')"
+                >
+                  View
+                </button>
+                <button
+                  class="btn btn-warning btn-sm"
+                  onclick="editOrder('ORD123')"
+                >
+                  Edit
+                </button>
+                <button
+                  class="btn btn-danger btn-sm"
+                  onclick="deleteOrder('ORD123')"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>4</td>
+              <td>ORD126</td>
+              <td>Kalam</td>
+              <td><span class="badge bg-success">Cancelled</span></td>
+              <td>6150tk</td>
+              <td class="text-center">
+                <button
+                  class="btn btn-info btn-sm"
+                  onclick="viewOrder('ORD123')"
+                >
+                  View
+                </button>
+                <button
+                  class="btn btn-warning btn-sm"
+                  onclick="editOrder('ORD123')"
+                >
+                  Edit
+                </button>
+                <button
+                  class="btn btn-danger btn-sm"
+                  onclick="deleteOrder('ORD123')"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>5</td>
+              <td>ORD127</td>
+              <td>Abul</td>
+              <td><span class="badge bg-success">Pending</span></td>
+              <td>18150tk</td>
+              <td class="text-center">
+                <button
+                  class="btn btn-info btn-sm"
+                  onclick="viewOrder('ORD123')"
+                >
+                  View
+                </button>
+                <button
+                  class="btn btn-warning btn-sm"
+                  onclick="editOrder('ORD123')"
+                >
+                  Edit
+                </button>
+                <button
+                  class="btn btn-danger btn-sm"
+                  onclick="deleteOrder('ORD123')"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>ORD123</td>
+              <td>John Doe</td>
+              <td><span class="badge bg-success">Shipped</span></td>
+              <td>7150tk</td>
+              <td class="text-center">
+                <button
+                  class="btn btn-info btn-sm"
+                  onclick="viewOrder('ORD123')"
+                >
+                  View
+                </button>
+                <button
+                  class="btn btn-warning btn-sm"
+                  onclick="editOrder('ORD123')"
+                >
+                  Edit
+                </button>
+                <button
+                  class="btn btn-danger btn-sm"
+                  onclick="deleteOrder('ORD123')"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>2</td>
+              <td>ORD124</td>
+              <td>alam</td>
+              <td><span class="badge bg-success">Delivered</span></td>
+              <td>8150tk</td>
+              <td class="text-center">
+                <button
+                  class="btn btn-info btn-sm"
+                  onclick="viewOrder('ORD123')"
+                >
+                  View
+                </button>
+                <button
+                  class="btn btn-warning btn-sm"
+                  onclick="editOrder('ORD123')"
+                >
+                  Edit
+                </button>
+                <button
+                  class="btn btn-danger btn-sm"
+                  onclick="deleteOrder('ORD123')"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>3</td>
+              <td>ORD125</td>
+              <td>lamim</td>
+              <td><span class="badge bg-success">Pending</span></td>
+              <td>12150tk</td>
+              <td class="text-center">
+                <button
+                  class="btn btn-info btn-sm"
+                  onclick="viewOrder('ORD123')"
+                >
+                  View
+                </button>
+                <button
+                  class="btn btn-warning btn-sm"
+                  onclick="editOrder('ORD123')"
+                >
+                  Edit
+                </button>
+                <button
+                  class="btn btn-danger btn-sm"
+                  onclick="deleteOrder('ORD123')"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>4</td>
+              <td>ORD126</td>
+              <td>Kalam</td>
+              <td><span class="badge bg-success">Cancelled</span></td>
+              <td>6150tk</td>
+              <td class="text-center">
+                <button
+                  class="btn btn-info btn-sm"
+                  onclick="viewOrder('ORD123')"
+                >
+                  View
+                </button>
+                <button
+                  class="btn btn-warning btn-sm"
+                  onclick="editOrder('ORD123')"
+                >
+                  Edit
+                </button>
+                <button
+                  class="btn btn-danger btn-sm"
+                  onclick="deleteOrder('ORD123')"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>5</td>
+              <td>ORD127</td>
+              <td>Abul</td>
+              <td><span class="badge bg-success">Pending</span></td>
+              <td>18150tk</td>
+              <td class="text-center">
+                <button
+                  class="btn btn-info btn-sm"
+                  onclick="viewOrder('ORD123')"
+                >
+                  View
+                </button>
+                <button
+                  class="btn btn-warning btn-sm"
+                  onclick="editOrder('ORD123')"
+                >
+                  Edit
+                </button>
+                <button
+                  class="btn btn-danger btn-sm"
+                  onclick="deleteOrder('ORD123')"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="user-management" class="section my-4">
+      <h2 id="mu" class="text-center">Manage Users</h2>
+      <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+          <thead class="table-dark">
+            <tr>
+              <th>#</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Last Login</th>
+              <th class="text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Example row -->
+            <tr>
+              <td>1</td>
+              <td>johndoe</td>
+              <td>johndoe@example.com</td>
+              <td>+1 123-456-7890</td>
+              <td><span class="badge bg-primary">Admin</span></td>
+              <td><span class="badge bg-success">Active</span></td>
+              <td>2024-12-28 14:45</td>
+              <td class="text-center">
+                <div class="btn-group" role="group">
+                  <button class="btn btn-info btn-sm">View</button>
+                  <button class="btn btn-warning btn-sm">Edit</button>
+                  <button class="btn btn-danger btn-sm">Delete</button>
+                </div>
+              </td>
+            </tr>
+            <!-- Add more rows here -->
+            <tr>
+              <td>2</td>
+              <td>janedoe</td>
+              <td>janedoe@example.com</td>
+              <td>+1 987-654-3210</td>
+              <td><span class="badge bg-secondary">Customer</span></td>
+              <td><span class="badge bg-warning">Pending</span></td>
+              <td>2024-12-27 16:20</td>
+              <td class="text-center">
+                <div class="btn-group" role="group">
+                  <button class="btn btn-info btn-sm">View</button>
+                  <button class="btn btn-warning btn-sm">Edit</button>
+                  <button class="btn btn-danger btn-sm">Delete</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>2</td>
+              <td>Kamal</td>
+              <td>kamal@example.com</td>
+              <td>+1 987-654-3210</td>
+              <td><span class="badge bg-secondary">Customer</span></td>
+              <td><span class="badge bg-warning">Delivered</span></td>
+              <td>2024-12-27 16:20</td>
+              <td class="text-center">
+                <div class="btn-group" role="group">
+                  <button class="btn btn-info btn-sm">View</button>
+                  <button class="btn btn-warning btn-sm">Edit</button>
+                  <button class="btn btn-danger btn-sm">Delete</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>3</td>
+              <td>Hasan</td>
+              <td>hasan@example.com</td>
+              <td>+1 987-654-3210</td>
+              <td><span class="badge bg-secondary">Customer</span></td>
+              <td><span class="badge bg-warning">Pending</span></td>
+              <td>2024-12-27 16:20</td>
+              <td class="text-center">
+                <div class="btn-group" role="group">
+                  <button class="btn btn-info btn-sm">View</button>
+                  <button class="btn btn-warning btn-sm">Edit</button>
+                  <button class="btn btn-danger btn-sm">Delete</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>4</td>
+              <td>doe</td>
+              <td>doe@example.com</td>
+              <td>+1 987-654-3210</td>
+              <td><span class="badge bg-secondary">Customer</span></td>
+              <td><span class="badge bg-warning">Cancelled</span></td>
+              <td>2024-12-27 16:20</td>
+              <td class="text-center">
+                <div class="btn-group" role="group">
+                  <button class="btn btn-info btn-sm">View</button>
+                  <button class="btn btn-warning btn-sm">Edit</button>
+                  <button class="btn btn-danger btn-sm">Delete</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>5</td>
+              <td>anedoe</td>
+              <td>anedoe@example.com</td>
+              <td>+1 987-654-3210</td>
+              <td><span class="badge bg-secondary">Customer</span></td>
+              <td><span class="badge bg-warning">Pending</span></td>
+              <td>2024-12-27 16:20</td>
+              <td class="text-center">
+                <div class="btn-group" role="group">
+                  <button class="btn btn-info btn-sm">View</button>
+                  <button class="btn btn-warning btn-sm">Edit</button>
+                  <button class="btn btn-danger btn-sm">Delete</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="settings" class="section">
+      <h2>Settings</h2>
+      <form>
+        <div class="form-group">
+          <label for="storeName">Store Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="storeName"
+            value="My E-Commerce Store"
+          />
+        </div>
+        <div class="form-group">
+          <label for="storeEmail">Store Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="storeEmail"
+            value="info@myecommerce.com"
+          />
+        </div>
+        <button type="submit" class="btn btn-success">Save</button>
+      </form>
+    </div>
+  </div>
+
+  <section class="my-5">
+    <div class="container">
+      <div class="main-body">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtbEsykx-0fhTred6UwHDYtMFd2UgTJCG4gaklT1dx4suRO4_n5LJr4Gg28kquSX5fpNo&usqp=CAU"
+                    alt="Admin"
+                    class="rounded-circle p-1 bg-warning"
+                    width="110"
+                  />
+                  <div class="mt-3">
+                    <h4 id="ud">Jyoti</h4>
+                    <p class="text-secondary mb-1">+8801749365873</p>
+                    <p class="text-muted font-size-sm">Dhaka</p>
+                  </div>
+                </div>
+                <div class="list-group list-group-flush text-center mt-4">
+                  <a
+                    href="/pDash#profileDetails"
+                    class="list-group-item list-group-item-action border-0"
+                    onclick="showProfileDetails()"
+                  >
+                    Profile Informaton
+                  </a>
+                  <a
+                    href="#"
+                    class="list-group-item list-group-item-action border-0"
+                    onclick="showOrderDetails()"
+                    >Orders</a
+                  >
+
+                  <a
+                    href="#"
+                    class="list-group-item list-group-item-action border-0 active"
+                    onclick="showAddressBook()"
+                  >
+                    Address Book
+                  </a>
+                  <a
+                    href="#"
+                    class="list-group-item list-group-item-action border-0"
+                    >Logout</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div id="orderDetails" class="order_card">
+              <div class="card">
+                <div class="card-body">
+                  <div class="top-status">
+                    <h5>ORDER# 00000</h5>
+                    <ul>
+                      <li class="active">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          id="Layer_1"
+                          data-name="Layer 1"
+                          viewBox="0 0 512 512"
+                          width="50"
+                          height="50"
+                        >
+                          <title>Clock Delivery package</title>
+                          <path
+                            d="M316.96,424.4A96,96,0,1,1,400,472.22,95.391,95.391,0,0,1,316.96,424.4Z"
+                            style="fill: #6fe3ff"
+                          />
+                          <path
+                            d="M400,135.55V280.22A96.008,96.008,0,0,0,316.96,424.4L208,487.3V246.38L399.98,135.54Z"
+                            style="fill: #c16752"
+                          />
+                          <polygon
+                            points="208 246.38 141.14 207.78 333.13 96.94 399.98 135.54 208 246.38"
+                            style="fill: #e48e66"
+                          />
+                          <polygon
+                            points="333.13 96.94 141.14 207.78 92.21 179.53 284.19 68.69 333.13 96.94"
+                            style="fill: #e5d45a"
+                          />
+                          <polygon
+                            points="208 24.7 284.19 68.69 92.21 179.53 92.2 179.53 16.02 135.54 208 24.7"
+                            style="fill: #af593c"
+                          />
+                          <polygon
+                            points="208 246.38 208 487.3 16 376.45 16 135.55 16.02 135.54 92.2 179.53 92.2 339.28 115.45 329.68 140.8 358.48 140.8 207.98 141.14 207.78 208 246.38"
+                            style="fill: #e48e66"
+                          />
+                          <polygon
+                            points="141.14 207.78 140.8 207.98 140.8 358.48 115.45 329.68 92.2 339.28 92.2 179.53 92.21 179.53 141.14 207.78"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M284.75,269.594l-17.9-18.959a7,7,0,0,0-11.256,1.49l-16.9,31.44a7,7,0,0,0,6.16,10.316,7.185,7.185,0,0,0,6.292-3.687L255,283.247V343.42a7,7,0,1,0,14,0V273.051l5.69,6.154a6.927,6.927,0,0,0,9.835.285A7,7,0,0,0,284.75,269.594Z"
+                            style="fill: #6fe3ff"
+                          />
+                          <path
+                            d="M40.83,378.37a7,7,0,0,1-7-7V345.45a7,7,0,0,1,14,0v25.92A7,7,0,0,1,40.83,378.37Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M69.25,395a7,7,0,0,1-7-7V364.65a7,7,0,0,1,14,0V388A7,7,0,0,1,69.25,395Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M97.68,411.41a7,7,0,0,1-7-7V383.85a7,7,0,0,1,14,0v20.56A7,7,0,0,1,97.68,411.41Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M126.1,427.82a7,7,0,0,1-7-7V403.05a7,7,0,0,1,14,0v17.77A7,7,0,0,1,126.1,427.82Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M154.52,444.61a7,7,0,0,1-7-7V422.25a7,7,0,0,1,14,0v15.36A7,7,0,0,1,154.52,444.61Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M247.777,384.941a7,7,0,0,1-3.507-13.064l31.89-18.41a7,7,0,0,1,7,12.125L251.27,384A6.964,6.964,0,0,1,247.777,384.941Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M432.039,413.22a6.975,6.975,0,0,1-4.783-1.89l-32.04-30A7,7,0,0,1,393,376.22V313.97a7,7,0,0,1,14,0v59.215l29.824,27.925a7,7,0,0,1-4.785,12.11Z"
+                            style="fill: #2561a1"
+                          />
+                        </svg>
+                        <span>Pending</span>
+                      </li>
+                      <li>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          id="Layer_1"
+                          data-name="Layer 1"
+                          viewBox="0 0 512 512"
+                          width="50"
+                          height="50"
+                        >
+                          <title>Clock Delivery package</title>
+                          <path
+                            d="M316.96,424.4A96,96,0,1,1,400,472.22,95.391,95.391,0,0,1,316.96,424.4Z"
+                            style="fill: #6fe3ff"
+                          />
+                          <path
+                            d="M400,135.55V280.22A96.008,96.008,0,0,0,316.96,424.4L208,487.3V246.38L399.98,135.54Z"
+                            style="fill: #c16752"
+                          />
+                          <polygon
+                            points="208 246.38 141.14 207.78 333.13 96.94 399.98 135.54 208 246.38"
+                            style="fill: #e48e66"
+                          />
+                          <polygon
+                            points="333.13 96.94 141.14 207.78 92.21 179.53 284.19 68.69 333.13 96.94"
+                            style="fill: #e5d45a"
+                          />
+                          <polygon
+                            points="208 24.7 284.19 68.69 92.21 179.53 92.2 179.53 16.02 135.54 208 24.7"
+                            style="fill: #af593c"
+                          />
+                          <polygon
+                            points="208 246.38 208 487.3 16 376.45 16 135.55 16.02 135.54 92.2 179.53 92.2 339.28 115.45 329.68 140.8 358.48 140.8 207.98 141.14 207.78 208 246.38"
+                            style="fill: #e48e66"
+                          />
+                          <polygon
+                            points="141.14 207.78 140.8 207.98 140.8 358.48 115.45 329.68 92.2 339.28 92.2 179.53 92.21 179.53 141.14 207.78"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M284.75,269.594l-17.9-18.959a7,7,0,0,0-11.256,1.49l-16.9,31.44a7,7,0,0,0,6.16,10.316,7.185,7.185,0,0,0,6.292-3.687L255,283.247V343.42a7,7,0,1,0,14,0V273.051l5.69,6.154a6.927,6.927,0,0,0,9.835.285A7,7,0,0,0,284.75,269.594Z"
+                            style="fill: #6fe3ff"
+                          />
+                          <path
+                            d="M40.83,378.37a7,7,0,0,1-7-7V345.45a7,7,0,0,1,14,0v25.92A7,7,0,0,1,40.83,378.37Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M69.25,395a7,7,0,0,1-7-7V364.65a7,7,0,0,1,14,0V388A7,7,0,0,1,69.25,395Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M97.68,411.41a7,7,0,0,1-7-7V383.85a7,7,0,0,1,14,0v20.56A7,7,0,0,1,97.68,411.41Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M126.1,427.82a7,7,0,0,1-7-7V403.05a7,7,0,0,1,14,0v17.77A7,7,0,0,1,126.1,427.82Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M154.52,444.61a7,7,0,0,1-7-7V422.25a7,7,0,0,1,14,0v15.36A7,7,0,0,1,154.52,444.61Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M247.777,384.941a7,7,0,0,1-3.507-13.064l31.89-18.41a7,7,0,0,1,7,12.125L251.27,384A6.964,6.964,0,0,1,247.777,384.941Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M432.039,413.22a6.975,6.975,0,0,1-4.783-1.89l-32.04-30A7,7,0,0,1,393,376.22V313.97a7,7,0,0,1,14,0v59.215l29.824,27.925a7,7,0,0,1-4.785,12.11Z"
+                            style="fill: #2561a1"
+                          />
+                        </svg>
+                        <span>Pending</span>
+                      </li>
+                      <li>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          id="Layer_1"
+                          data-name="Layer 1"
+                          viewBox="0 0 512 512"
+                          width="50"
+                          height="50"
+                        >
+                          <title>Clock Delivery package</title>
+                          <path
+                            d="M316.96,424.4A96,96,0,1,1,400,472.22,95.391,95.391,0,0,1,316.96,424.4Z"
+                            style="fill: #6fe3ff"
+                          />
+                          <path
+                            d="M400,135.55V280.22A96.008,96.008,0,0,0,316.96,424.4L208,487.3V246.38L399.98,135.54Z"
+                            style="fill: #c16752"
+                          />
+                          <polygon
+                            points="208 246.38 141.14 207.78 333.13 96.94 399.98 135.54 208 246.38"
+                            style="fill: #e48e66"
+                          />
+                          <polygon
+                            points="333.13 96.94 141.14 207.78 92.21 179.53 284.19 68.69 333.13 96.94"
+                            style="fill: #e5d45a"
+                          />
+                          <polygon
+                            points="208 24.7 284.19 68.69 92.21 179.53 92.2 179.53 16.02 135.54 208 24.7"
+                            style="fill: #af593c"
+                          />
+                          <polygon
+                            points="208 246.38 208 487.3 16 376.45 16 135.55 16.02 135.54 92.2 179.53 92.2 339.28 115.45 329.68 140.8 358.48 140.8 207.98 141.14 207.78 208 246.38"
+                            style="fill: #e48e66"
+                          />
+                          <polygon
+                            points="141.14 207.78 140.8 207.98 140.8 358.48 115.45 329.68 92.2 339.28 92.2 179.53 92.21 179.53 141.14 207.78"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M284.75,269.594l-17.9-18.959a7,7,0,0,0-11.256,1.49l-16.9,31.44a7,7,0,0,0,6.16,10.316,7.185,7.185,0,0,0,6.292-3.687L255,283.247V343.42a7,7,0,1,0,14,0V273.051l5.69,6.154a6.927,6.927,0,0,0,9.835.285A7,7,0,0,0,284.75,269.594Z"
+                            style="fill: #6fe3ff"
+                          />
+                          <path
+                            d="M40.83,378.37a7,7,0,0,1-7-7V345.45a7,7,0,0,1,14,0v25.92A7,7,0,0,1,40.83,378.37Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M69.25,395a7,7,0,0,1-7-7V364.65a7,7,0,0,1,14,0V388A7,7,0,0,1,69.25,395Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M97.68,411.41a7,7,0,0,1-7-7V383.85a7,7,0,0,1,14,0v20.56A7,7,0,0,1,97.68,411.41Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M126.1,427.82a7,7,0,0,1-7-7V403.05a7,7,0,0,1,14,0v17.77A7,7,0,0,1,126.1,427.82Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M154.52,444.61a7,7,0,0,1-7-7V422.25a7,7,0,0,1,14,0v15.36A7,7,0,0,1,154.52,444.61Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M247.777,384.941a7,7,0,0,1-3.507-13.064l31.89-18.41a7,7,0,0,1,7,12.125L251.27,384A6.964,6.964,0,0,1,247.777,384.941Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M432.039,413.22a6.975,6.975,0,0,1-4.783-1.89l-32.04-30A7,7,0,0,1,393,376.22V313.97a7,7,0,0,1,14,0v59.215l29.824,27.925a7,7,0,0,1-4.785,12.11Z"
+                            style="fill: #2561a1"
+                          />
+                        </svg>
+                        <span>Pending</span>
+                      </li>
+                      <li>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          id="Layer_1"
+                          data-name="Layer 1"
+                          viewBox="0 0 512 512"
+                          width="50"
+                          height="50"
+                        >
+                          <title>Clock Delivery package</title>
+                          <path
+                            d="M316.96,424.4A96,96,0,1,1,400,472.22,95.391,95.391,0,0,1,316.96,424.4Z"
+                            style="fill: #6fe3ff"
+                          />
+                          <path
+                            d="M400,135.55V280.22A96.008,96.008,0,0,0,316.96,424.4L208,487.3V246.38L399.98,135.54Z"
+                            style="fill: #c16752"
+                          />
+                          <polygon
+                            points="208 246.38 141.14 207.78 333.13 96.94 399.98 135.54 208 246.38"
+                            style="fill: #e48e66"
+                          />
+                          <polygon
+                            points="333.13 96.94 141.14 207.78 92.21 179.53 284.19 68.69 333.13 96.94"
+                            style="fill: #e5d45a"
+                          />
+                          <polygon
+                            points="208 24.7 284.19 68.69 92.21 179.53 92.2 179.53 16.02 135.54 208 24.7"
+                            style="fill: #af593c"
+                          />
+                          <polygon
+                            points="208 246.38 208 487.3 16 376.45 16 135.55 16.02 135.54 92.2 179.53 92.2 339.28 115.45 329.68 140.8 358.48 140.8 207.98 141.14 207.78 208 246.38"
+                            style="fill: #e48e66"
+                          />
+                          <polygon
+                            points="141.14 207.78 140.8 207.98 140.8 358.48 115.45 329.68 92.2 339.28 92.2 179.53 92.21 179.53 141.14 207.78"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M284.75,269.594l-17.9-18.959a7,7,0,0,0-11.256,1.49l-16.9,31.44a7,7,0,0,0,6.16,10.316,7.185,7.185,0,0,0,6.292-3.687L255,283.247V343.42a7,7,0,1,0,14,0V273.051l5.69,6.154a6.927,6.927,0,0,0,9.835.285A7,7,0,0,0,284.75,269.594Z"
+                            style="fill: #6fe3ff"
+                          />
+                          <path
+                            d="M40.83,378.37a7,7,0,0,1-7-7V345.45a7,7,0,0,1,14,0v25.92A7,7,0,0,1,40.83,378.37Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M69.25,395a7,7,0,0,1-7-7V364.65a7,7,0,0,1,14,0V388A7,7,0,0,1,69.25,395Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M97.68,411.41a7,7,0,0,1-7-7V383.85a7,7,0,0,1,14,0v20.56A7,7,0,0,1,97.68,411.41Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M126.1,427.82a7,7,0,0,1-7-7V403.05a7,7,0,0,1,14,0v17.77A7,7,0,0,1,126.1,427.82Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M154.52,444.61a7,7,0,0,1-7-7V422.25a7,7,0,0,1,14,0v15.36A7,7,0,0,1,154.52,444.61Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M247.777,384.941a7,7,0,0,1-3.507-13.064l31.89-18.41a7,7,0,0,1,7,12.125L251.27,384A6.964,6.964,0,0,1,247.777,384.941Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M432.039,413.22a6.975,6.975,0,0,1-4.783-1.89l-32.04-30A7,7,0,0,1,393,376.22V313.97a7,7,0,0,1,14,0v59.215l29.824,27.925a7,7,0,0,1-4.785,12.11Z"
+                            style="fill: #2561a1"
+                          />
+                        </svg>
+                        <span>Pending</span>
+                      </li>
+                      <li>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          id="Layer_1"
+                          data-name="Layer 1"
+                          viewBox="0 0 512 512"
+                          width="50"
+                          height="50"
+                        >
+                          <title>Clock Delivery package</title>
+                          <path
+                            d="M316.96,424.4A96,96,0,1,1,400,472.22,95.391,95.391,0,0,1,316.96,424.4Z"
+                            style="fill: #6fe3ff"
+                          />
+                          <path
+                            d="M400,135.55V280.22A96.008,96.008,0,0,0,316.96,424.4L208,487.3V246.38L399.98,135.54Z"
+                            style="fill: #c16752"
+                          />
+                          <polygon
+                            points="208 246.38 141.14 207.78 333.13 96.94 399.98 135.54 208 246.38"
+                            style="fill: #e48e66"
+                          />
+                          <polygon
+                            points="333.13 96.94 141.14 207.78 92.21 179.53 284.19 68.69 333.13 96.94"
+                            style="fill: #e5d45a"
+                          />
+                          <polygon
+                            points="208 24.7 284.19 68.69 92.21 179.53 92.2 179.53 16.02 135.54 208 24.7"
+                            style="fill: #af593c"
+                          />
+                          <polygon
+                            points="208 246.38 208 487.3 16 376.45 16 135.55 16.02 135.54 92.2 179.53 92.2 339.28 115.45 329.68 140.8 358.48 140.8 207.98 141.14 207.78 208 246.38"
+                            style="fill: #e48e66"
+                          />
+                          <polygon
+                            points="141.14 207.78 140.8 207.98 140.8 358.48 115.45 329.68 92.2 339.28 92.2 179.53 92.21 179.53 141.14 207.78"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M284.75,269.594l-17.9-18.959a7,7,0,0,0-11.256,1.49l-16.9,31.44a7,7,0,0,0,6.16,10.316,7.185,7.185,0,0,0,6.292-3.687L255,283.247V343.42a7,7,0,1,0,14,0V273.051l5.69,6.154a6.927,6.927,0,0,0,9.835.285A7,7,0,0,0,284.75,269.594Z"
+                            style="fill: #6fe3ff"
+                          />
+                          <path
+                            d="M40.83,378.37a7,7,0,0,1-7-7V345.45a7,7,0,0,1,14,0v25.92A7,7,0,0,1,40.83,378.37Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M69.25,395a7,7,0,0,1-7-7V364.65a7,7,0,0,1,14,0V388A7,7,0,0,1,69.25,395Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M97.68,411.41a7,7,0,0,1-7-7V383.85a7,7,0,0,1,14,0v20.56A7,7,0,0,1,97.68,411.41Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M126.1,427.82a7,7,0,0,1-7-7V403.05a7,7,0,0,1,14,0v17.77A7,7,0,0,1,126.1,427.82Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M154.52,444.61a7,7,0,0,1-7-7V422.25a7,7,0,0,1,14,0v15.36A7,7,0,0,1,154.52,444.61Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M247.777,384.941a7,7,0,0,1-3.507-13.064l31.89-18.41a7,7,0,0,1,7,12.125L251.27,384A6.964,6.964,0,0,1,247.777,384.941Z"
+                            style="fill: #f8ec7d"
+                          />
+                          <path
+                            d="M432.039,413.22a6.975,6.975,0,0,1-4.783-1.89l-32.04-30A7,7,0,0,1,393,376.22V313.97a7,7,0,0,1,14,0v59.215l29.824,27.925a7,7,0,0,1-4.785,12.11Z"
+                            style="fill: #2561a1"
+                          />
+                        </svg>
+                        <span>Pending</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card mt-4">
+                <div class="card-body p-0 table-responsive">
+                  <h4 class="p-3 mb-0">Product Description</h4>
+                  <table class="table mb-0">
+                    <thead>
+                      <tr>
+                        <th scope="col">Description</th>
+                        <th scope="col"></th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>
+                          <img
+                            src="https://bootdey.com/img/Content/avatar/avatar6.png"
+                            alt="product"
+                            class=""
+                            width="80"
+                          />
+                        </th>
+                        <td>
+                          Lorem ipsum dolor, sit amet consectetur adipisicing
+                          elit. Dolorem, facilis.
+                        </td>
+                        <td>₹100 X 2</td>
+                        <td><strong>₹200</strong></td>
+                        <td>
+                          <span class="badge badge-warning">PENDING</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th colspan="3">
+                          <span>Status:</span>
+                          <span class="badge badge-success">PAID</span>
+                        </th>
+                        <td>
+                          <span class="text-muted">Total Price</span>
+                          <strong>₹200</strong>
+                        </td>
+                        <td>
+                          <span class="text-muted">Total Paid</span>
+                          <strong>₹200</strong>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="card mt-4">
+                <div class="card-body">
+                  <h4>Timeline</h4>
+                  <ul class="timeline">
+                    <li class="active">
+                      <h6>PICKED</h6>
+                      <p class="mb-0 text-muted">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Quisque Lorem ipsum dolor
+                      </p>
+                    </li>
+                    <li>
+                      <h6>PICKED</h6>
+                      <p class="mb-0 text-muted">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Quisque
+                      </p>
+                    </li>
+                    <li>
+                      <h6>PICKED</h6>
+                      <p class="mb-0 text-muted">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Quisque
+                      </p>
+                    </li>
+                    <li>
+                      <h6>PICKED</h6>
+                      <p class="mb-0 text-muted">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Quisque
+                      </p>
+                    </li>
+                    <li>
+                      <h6>PICKED</h6>
+                      <p class="mb-0 text-muted">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Quisque
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div id="profileDetails" class="card" style="display: none">
+              <div class="card-body">
+                <div class="profile-info">
+                  <h5>Profile Information</h5>
+                  <p><strong>Name:</strong> Jyoti</p>
+                  <p><strong>Email Address:</strong> jyoti@gmail.com</p>
+                  <p><strong>Contact:</strong> +91 7493658737</p>
+                  <p><strong>Date of Birth:</strong> 02-03-1999</p>
+                  <p><strong>Gender:</strong> Female</p>
+                  <p><strong>City:</strong> Delhi, NCR</p>
+                  <p><strong>Height:</strong> 5.4</p>
+                  <p><strong>Weight:</strong> 50</p>
+                  <p><strong>Goal:</strong> Hair & Skin</p>
+                  <p><strong>Preference:</strong> Pure Vegitarian</p>
+                  <p><strong>Role:</strong> User</p>
+                </div>
+              </div>
+            </div>
+
+            <div id="addressBook" class="card" style="display: none">
+              <div class="card-body">
+                <h5>Address Book</h5>
+                <button
+                  class="add_address_button"
+                  onclick="showAddAddressModal()"
+                >
+                  Add Address
+                </button>
+
+                <div id="addressList"></div>
+              </div>
+            </div>
+
+            <div id="addAddressModal" class="modal">
+              <div class="modal-content">
+                <span class="close" onclick="closeAddAddressModal()"
+                  >&times;</span
+                >
+                <h2>Add Address</h2>
+                <form id="addAddressForm" onsubmit="saveAddress(event)">
+                  <div class="col-12 d-flex main_flex_div">
+                    <div class="col-4 d-flex flex-column inner_flex_div">
+                      <label for="name">Name:</label>
+                      <input type="text" id="name" required /><br />
+                    </div>
+                    <div class="col-4 d-flex flex-column inner_flex_div">
+                      <label for="mobile">Mobile No.:</label>
+                      <input
+                        type="tel"
+                        id="mobile"
+                        required
+                        pattern="[0-9]{10}"
+                      />
+                    </div>
+                    <div class="col-4 d-flex flex-column inner_flex_div">
+                      <label for="pincode">Pin code:</label>
+                      <input type="text" id="pincode" required /><br />
+                    </div>
+                  </div>
+
+                  <div class="col-12 d-flex main_flex_div">
+                    <div class="col-4 d-flex flex-column inner_flex_div">
+                      <label for="locality">Locality:</label>
+                      <input type="text" id="locality" required /><br />
+                    </div>
+
+                    <div class="col-4 d-flex flex-column inner_flex_div">
+                      <label for="city">City/District/Town:</label>
+                      <input type="text" id="city" required /><br />
+                    </div>
+
+                    <div class="col-4 d-flex flex-column inner_flex_div">
+                      <label for="state">State:</label>
+                      <select id="state" required>
+                        <option value="">Select a state</option>
+                        <option value="State 1">State 1</option>
+                        <option value="State 2">State 2</option>
+                        <option value="State 3">State 3</option></select
+                      ><br />
+                    </div>
+                  </div>
+
+                  <div class="col-12 d-flex main_flex_div">
+                    <div class="col-12 d-flex flex-column inner_flex_div">
+                      <label for="address">Address:</label>
+                      <textarea id="address" required></textarea><br />
+                    </div>
+                  </div>
+
+                  <div class="col-12 d-flex main_flex_div">
+                    <div class="col-6 d-flex flex-column inner_flex_div">
+                      <label for="landmark">Landmark (Optional):</label>
+                      <input type="text" id="landmark" /><br />
+                    </div>
+                    <div class="col-6 d-flex flex-column inner_flex_div">
+                      <label for="alternatePhone"
+                        >Alternate Phone (Optional):</label
+                      >
+                      <input
+                        type="tel"
+                        id="alternatePhone"
+                        pattern="[0-9]{10}"
+                      /><br />
+                    </div>
+                  </div>
+
+                  <div class="col-12 d-flex button_div">
+                    <button type="submit">Save</button>
+                    <button type="button" onclick="closeAddAddressModal()">
+                      Cancel
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div
+    class="modal fade"
+    id="addProductModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add New Product</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="productName">Product Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="productName"
+                placeholder="Product Name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="productPrice">Price</label>
+              <input
+                type="number"
+                class="form-control"
+                id="productPrice"
+                placeholder="Price"
+              />
+            </div>
+            <div class="form-group">
+              <label for="productDescription">Description</label>
+              <textarea
+                class="form-control"
+                id="productDescription"
+                rows="3"
+                placeholder="Product Description"
+              ></textarea>
+            </div>
+            <button routerLink="" type="submit" class="btn btn-primary">
+              Add Product
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

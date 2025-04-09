@@ -1,0 +1,33 @@
+
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="faq-list">
+  <h2>Frequently Asked Questions <b style="color: red;">{{faqs.length}}</b></h2>
+
+  <!-- Button to submit a new FAQ -->
+  <div class="send-faq">
+    <input type="text" [(ngModel)]="newFaqQuestion" placeholder="Enter your question" />
+    <textarea [(ngModel)]="newFaqAnswer" placeholder="Enter your answer"></textarea>
+    <button (click)="sendFaq()">Add FAQ</button>
+  </div>
+
+  <!-- Display list of FAQs -->
+  <div *ngIf="faqs && faqs.length > 0; else noFaqs">
+    <ul>
+      <li *ngFor="let faq of faqs">
+        <strong>{{ faq.question }}</strong>
+        <p>{{ faq.answer }}</p>
+      </li>
+    </ul>
+  </div>
+
+  <!-- No FAQs message -->
+  <ng-template #noFaqs>
+    <p>No frequently asked questions to display.</p>
+  </ng-template>
+</div>
+

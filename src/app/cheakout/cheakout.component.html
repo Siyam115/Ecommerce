@@ -1,0 +1,126 @@
+
+
+
+<br>
+<br>
+<br>
+<br><div class="checkout-form-container">
+  <div class="row">
+    <div class="col-md-8">
+      <h1>Customer Details</h1>
+      <form [formGroup]="cheakoutForm" (ngSubmit)="save()">
+        <div id="customer" class="checkout-block">
+          <hr>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="customer-firstname">First Name</label>
+              <input type="text" id="customer-firstname" formControlName="firstname" placeholder="First Name" required>
+            </div>
+            <div class="form-group">
+              <label for="customer-lastname">Last Name</label>
+              <input type="text" id="customer-lastname" formControlName="lastname" placeholder="Last Name" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="customer-email">Email</label>
+            <input type="email" id="customer-email" formControlName="email" placeholder="Email" required>
+          </div>
+        </div>
+
+        <div id="shipping" class="checkout-block">
+          <hr>
+          <div class="form-group">
+            <label for="shipping-country">Country</label>
+            <select id="shipping-country" formControlName="country" required>
+              <option value="">Select Country</option>
+              <option value="Bangladesh">Bangladesh</option>
+              <option value="United States">United States</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="shipping-street">Street Address</label>
+            <input type="text" id="shipping-street" formControlName="street" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="shipping-division">Division</label>
+              <input type="text" id="shipping-division" formControlName="division" required>
+            </div>
+            <div class="form-group">
+              <label for="shipping-city">District</label>
+              <select id="shipping-city" formControlName="city" required>
+                <option value="">Select City</option>
+                <option value="Dhaka">Dhaka</option>
+                <option value="Cumilla">Cumilla</option>
+                <option value="Chittagong">Chittagong</option>
+                <option value="Noakhali">Noakhali</option>
+                <option value="Chandpur">Chandpur</option>
+                <option value="Others">Others</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="shipping-zip">Postal/Zip Code</label>
+              <input type="text" id="shipping-zip" formControlName="postal" required>
+            </div>
+            <div class="form-group">
+              <label for="shipping-method">Shipping Method</label>
+              <input type="text" id="shipping-method" formControlName="shipping" required>
+            </div>
+          </div>
+        </div>
+
+        <div id="payment" class="checkout-block">
+          <h3>Payment</h3>
+          <div class="payment-icons">
+            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#bkashModal">
+              <img src="https://www.logo.wine/a/logo/BKash/BKash-Icon-Logo.wine.svg" alt="bKash" class="payment-icon">
+            </button>
+            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#visaModal">
+              <img src="https://static-00.iconduck.com/assets.00/visa-icon-2048x1313-o6hi8q5l.png" alt="Visa" class="payment-icon">
+            </button>
+            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#masterCardModal">
+              <img src="https://static-00.iconduck.com/assets.00/payment-mastercard-icon-2048x1229-8kxlbqe4.png" alt="MasterCard" class="payment-icon">
+            </button>
+            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#amazonPayModal">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdyHbkHUkgkErfiU51EbKMidRTXIHmJPCECw&s" alt="Amazon Pay" class="payment-icon">
+            </button>
+          </div>
+          <hr>
+          <div class="form-group">
+            <label for="payment-card-number">Card Number</label>
+            <input type="text" id="payment-card-number" formControlName="card" placeholder="Card Number" required>
+          </div>
+          <button type="submit" class="btn btn-primary" (click)="pay()">Pay Now</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="cart-summary col-md-4">
+      <div class="order-summary">
+        <h3>Order Summary</h3>
+        <div class="summary-item">
+          <span>Subtotal (2 items)</span>
+          <span class="price">৳{{ subtotal }}</span>
+        </div>
+        <div class="summary-item">
+          <span>Shipping Fee</span>
+          <span class="price">৳{{ shippingFee }}</span>
+        </div>
+        <div class="voucher-section">
+          <input type="text" [(ngModel)]="voucherCode" placeholder="Enter Voucher Code">
+          <button (click)="applyVoucher()">APPLY</button>
+        </div>
+        <div class="summary-item total">
+          <span>Total</span>
+          <span class="total-price">৳{{ total }}</span>
+        </div>
+        <button routerLink="/checkout" class="checkout-btn">Proceed to Checkout</button>
+        <a href="http://localhost:8080/download?format=pdf&id=4" target="_blank">
+          <button type="button" class="btn-submit">Print</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

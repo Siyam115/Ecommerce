@@ -1,0 +1,18 @@
+<div class="parent">
+  <div class="signup-container">
+    <div class="signup-box">
+      <h1>Sign Up</h1>
+      <p>Join our clothing shop community for exclusive deals and updates!</p>
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <input formControlName="username" type="text" placeholder="Full Name" required>
+        <!-- <input  type="email" placeholder="Email Address" required> -->
+        <input formControlName="pass" type="password" placeholder="Password" required>
+        <input formControlName="role" type="text" placeholder="role" required>
+        <button type="submit">Create Account</button>
+      </form>
+      <div class="footer">
+        Already have an account? <a href="#">Log In</a>
+      </div>
+    </div>
+  </div>
+  </div>

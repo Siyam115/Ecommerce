@@ -1,0 +1,42 @@
+
+<br>
+<br>
+<div class="parent">
+<div class="container my-4 mt-5">
+  <h2 class="text-center">User List</h2>
+
+  <table class="table table-bordered table-striped mt-4">
+    <thead class="table-dark">
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Status</th>
+        <th>Contact</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Loop through the users array to display each user -->
+      <tr *ngFor="let user of users; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ user.uName }}</td>
+        <td>{{ user.uEmail }}</td>
+        <td>{{ user.uPass }}</td>
+        <td>{{ user.uStatus }}</td>
+        <td>{{ user.uContact }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm me-2" (click)="edit(user.id)">
+              Edit
+            </button>
+
+          <button class="btn btn-danger btn-sm" (click)="delete(user.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>

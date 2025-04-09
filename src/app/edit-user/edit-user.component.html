@@ -1,0 +1,44 @@
+<div class="container my-4">
+  <h2 class="text-center">Edit User</h2>
+
+  <form [formGroup]="userForm" (ngSubmit)="save()" class="p-4 rounded">
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="uName" class="form-label">Name</label>
+        <input type="text" id="uName" class="form-control" formControlName="uName" placeholder="Enter name" required />
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="uEmail" class="form-label">Email</label>
+        <input type="email" id="uEmail" class="form-control" formControlName="uEmail" placeholder="Enter email"
+          required />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="uPass" class="form-label">Password</label>
+        <input type="password" id="uPass" class="form-control" formControlName="uPass" placeholder="Enter password"
+          required />
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="uStatus" class="form-label">Status</label>
+        <input type="text" id="uStatus" class="form-control" formControlName="uStatus" placeholder="Enter status"
+          required />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="uContact" class="form-label">Contact</label>
+        <input type="text" id="uContact" class="form-control" formControlName="uContact" placeholder="Enter contact"
+          required />
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-success w-100">Save Changes</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,52 @@
+<br>
+<br>
+<div class="container my-5">
+  <h2 class="text-center mb-4">Create User</h2>
+
+  <form [formGroup]="userForm" (ngSubmit)="save()" class="p-4 rounded shadow bg-light">
+    <div class="row g-3">
+      <!-- Name -->
+      <div class="col-md-6">
+        <label for="uName" class="form-label fw-bold">Name</label>
+        <input type="text" id="uName" class="form-control" formControlName="uName" placeholder="Enter name" required />
+      </div>
+
+      <!-- Email -->
+      <div class="col-md-6">
+        <label for="uEmail" class="form-label fw-bold">Email</label>
+        <input type="email" id="uEmail" class="form-control" formControlName="uEmail" placeholder="Enter email"
+          required />
+      </div>
+    </div>
+
+    <div class="row g-3 mt-3">
+      <!-- Password -->
+      <div class="col-md-6">
+        <label for="uPass" class="form-label fw-bold">Password</label>
+        <input type="password" id="uPass" class="form-control" formControlName="uPass" placeholder="Enter password"
+          required />
+      </div>
+
+      <!-- Status -->
+      <div class="col-md-6">
+        <label for="uStatus" class="form-label fw-bold">Status</label>
+        <input type="text" id="uStatus" class="form-control" formControlName="uStatus" placeholder="Enter status"
+          required />
+      </div>
+    </div>
+
+    <div class="row g-3 mt-3">
+      <!-- Contact -->
+      <div class="col-md-6">
+        <label for="uContact" class="form-label fw-bold">Contact</label>
+        <input type="text" id="uContact" class="form-control" formControlName="uContact" placeholder="Enter contact"
+          required />
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-success px-4 py-2 w-50">Save Changes</button>
+    </div>
+  </form>
+</div>
